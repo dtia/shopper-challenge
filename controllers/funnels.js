@@ -15,6 +15,8 @@ var funnel_routes = function(app) {
 			});
 		}
 
+		// TODO: should add more validation here to make sure the date is the right format
+
 		var startDateArr = startDate.split('-');
 		var startDateObject = new Date(startDateArr[0], startDateArr[1]-1, startDateArr[2]);
 		var endDateArr = endDate.split('-');
