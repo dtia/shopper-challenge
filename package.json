@@ -1,0 +1,22 @@
+{
+  "name": "shopper-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dtia/shopper-challenge.git"
+  },
+  "author": "Derek Tia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dtia/shopper-challenge/issues"
+  },
+  "homepage": "https://github.com/dtia/shopper-challenge#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
