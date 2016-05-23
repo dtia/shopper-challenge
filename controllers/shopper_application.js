@@ -1,3 +1,6 @@
+var Shopper = require('../models/shopper');
+var Constants = require('../models/constants')
+
 var shopper_app_routes = function(app) {
 
 	app.get('/confirm', function(req, res) {
@@ -5,7 +8,13 @@ var shopper_app_routes = function(app) {
 	});
 
 	app.get('/apply', function(req, res) {
-		res.render('application');
+		res.render('application', { regions: Constants.REGIONS });
+	});
+
+	app.post('/shopper', function(req, res) {
+		Shopper.create(req.body).then(function(shopper) {
+			res.send('shopper created');	
+		});		
 	});
 }
 

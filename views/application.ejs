@@ -1,0 +1,23 @@
+<div class="default">
+    <p>We'll just need you to fill in some details about yourself:</p>
+
+    <form action='/shopper' method='POST' id='shopperform'>
+		First name:<br>
+		<input type="text" name="firstname">
+		<br>
+		Last name:<br>
+		<input type="text" name="lastname">
+		<br>
+		Email address:<br>
+		<input type="text" name="email">
+		<br>
+		Region:<br>
+		<select name="region" form="shopperform">
+			<% regions.forEach(function (region) { %>
+				<option value="<%-region%>"><%-region%></option>
+			<% }); %>
+		</select>
+		<br><br>
+		<input type="submit" value="Submit">
+	</form>
+</div>

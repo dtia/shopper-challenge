@@ -1,7 +1,12 @@
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
 
-var user_app = require('./controllers/shopper_application.js')(app);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+var shopper_app_routes = require('./controllers/shopper_application.js')(app);
+var db = require('./db/db_conn');
 
 app.get('/', function (req, res) {
   res.render('home');
