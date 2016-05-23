@@ -8,6 +8,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var shopper_app_routes = require('./controllers/shopper_application.js')(app);
+var funnel_routes = require('./controllers/funnels.js')(app);
 var db = require('./db/db_conn');
 
 app.get('/', function (req, res) {
