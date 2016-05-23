@@ -18,7 +18,7 @@ var shopper_app_routes = function(app) {
 			// set email on session
 			// so application loads next time
 			req.session.email = req.body.email;
-			res.send('Shopper upserted!');	
+			res.render('confirm_update');	
 		});		
 	});
 
