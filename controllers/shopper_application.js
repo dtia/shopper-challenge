@@ -1,5 +1,6 @@
 var Shopper = require('../models/shopper');
 var Constants = require('../models/constants')
+var _ = require('underscore');
 
 var shopper_app_routes = function(app) {
 
@@ -8,15 +9,16 @@ var shopper_app_routes = function(app) {
 	});
 
 	app.get('/apply', function(req, res) {
-		res.render('application', { regions: Constants.REGIONS });
+		var regionPairs = _.pairs(Constants.REGIONS);
+		res.render('application', { regions: regionPairs });
 	});
 
 	app.post('/shopper', function(req, res) {
-		Shopper.create(req.body).then(function(shopper) {
+		Shopper.upsert(req.body).then(function() {
 			// set email on session
 			// so application loads next time
-			req.session.email = shopper.email;
-			res.send('Shopper created!');	
+			req.session.email = req.body.email;
+			res.send('Shopper upserted!');	
 		});		
 	});
 
@@ -28,7 +30,8 @@ var shopper_app_routes = function(app) {
 				email: email
 			}
 		}).then(function(shopper) {
-			res.json(shopper);
+			var regionPairs = _.pairs(Constants.REGIONS);
+			res.render('edit_application', { shopper: shopper, regions: regionPairs });
 		});
 	});
 }

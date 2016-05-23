@@ -1,0 +1,28 @@
+<div class="default">
+    <p>Your information is already in our system. Feel free to update any of your information:</p>
+
+    <form action='/shopper' method='POST' id='shopperform'>
+    	<input type="hidden" name="id" value=<%-shopper.id%>>
+		First name:<br>
+		<input type="text" name="firstname" value=<%-shopper.firstname%>>
+		<br>
+		Last name:<br>
+		<input type="text" name="lastname" value=<%-shopper.lastname%>>
+		<br>
+		Email address:<br>
+		<input type="text" name="email" value=<%-shopper.email%>>
+		<br>
+		Phone:<br>
+		<input type="text" name="phone" value=<%-shopper.phone%>>
+		<br>
+		Region:<br>
+		<select name="region" form="shopperform">
+		<% regions.forEach(function (region) { %>
+			<option value="<%-region[0]%>" <% if(region[0] === shopper.region) { %> selected <% } %>   ><%-region[1]%></option>
+		<% }); %>
+		</select>
+		<br><br>
+
+		<input type="submit" value="Submit">
+	</form>
+</div>

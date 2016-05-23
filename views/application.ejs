@@ -17,7 +17,7 @@
 		Region:<br>
 		<select name="region" form="shopperform">
 			<% regions.forEach(function (region) { %>
-				<option value="<%-region%>"><%-region%></option>
+				<option value="<%-region[0]%>"><%-region[1]%></option>
 			<% }); %>
 		</select>
 		<br><br>
