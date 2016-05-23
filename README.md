@@ -3,6 +3,9 @@ Shopper Challenge
 
 Welcome to Derek's Instacart Shopper Challenge!
 
+Requirements:
+	- latest version of node
+
 To launch this app, just run `npm start`
 
 The server should be up and running at localhost:3000
