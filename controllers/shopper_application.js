@@ -13,8 +13,23 @@ var shopper_app_routes = function(app) {
 
 	app.post('/shopper', function(req, res) {
 		Shopper.create(req.body).then(function(shopper) {
-			res.send('shopper created');	
+			// set email on session
+			// so application loads next time
+			req.session.email = shopper.email;
+			res.send('Shopper created!');	
 		});		
+	});
+
+	app.get('/shopper', function(req, res) {
+		var email = req.query.email;
+
+		Shopper.findOne({
+			where: {
+				email: email
+			}
+		}).then(function(shopper) {
+			res.json(shopper);
+		});
 	});
 }
 
